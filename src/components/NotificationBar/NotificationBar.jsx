@@ -13,7 +13,7 @@ export default class NotificationBar extends React.Component {
       <div className={ `notification-bar ${dismissedMod}` }>
         <Container className="notification-bar__inner">
           <p>
-            Sponsor webpack and get apparel at the same time! Visit <a href="https://webpack.threadless.com">the official webpack shop!</a>&nbsp; All proceeds go to webpack's <a href="https://opencollective.com/webpack">Open Collective page!</a>
+            Webpack을 후원하시고, 의류를 구매해주세요! 웹팩 <a href="https://webpack.threadless.com">공식 샵</a>을 방문해주세요!&nbsp; 모든 수익금은 webpack의 <a href="https://opencollective.com/webpack">Open Collective</a> 페이지에서 확인하실 수 있습니다!
           </p>
           <p>
             Buy the brand-new webpack stickers at <a href="http://www.unixstickers.com/tag/webpack">Unixstickers!</a>
