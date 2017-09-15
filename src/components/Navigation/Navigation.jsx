@@ -7,7 +7,7 @@ import Dropdown from '../Dropdown/Dropdown';
 // TODO: Maybe by updating the routing scheme later on we can avoid hardcoding this?
 let Sections = [
   {
-    title: '컨셉',
+    title: '개념',
     url: 'concepts'
   },
   {
@@ -35,7 +35,7 @@ let Sections = [
     url: '//medium.com/webpack'
   },
   {
-    title: 'Support',
+    title: '지원',
     url: 'support'
   }
 ];

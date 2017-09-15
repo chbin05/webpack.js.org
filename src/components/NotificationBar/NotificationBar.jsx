@@ -16,7 +16,7 @@ export default class NotificationBar extends React.Component {
             Webpack을 후원하시고, 의류를 구매해주세요! 웹팩 <a href="https://webpack.threadless.com">공식 샵</a>을 방문해주세요!&nbsp; 모든 수익금은 webpack의 <a href="https://opencollective.com/webpack">Open Collective</a> 페이지에서 확인하실 수 있습니다!
           </p>
           <p>
-            Buy the brand-new webpack stickers at <a href="http://www.unixstickers.com/tag/webpack">Unixstickers!</a>
+            <a href="http://www.unixstickers.com/tag/webpack">Unixstickers</a> 에서 새로운 브랜드의 웹팩 스티커를 구매하세요!
             {localStorageIsEnabled ?
               <button
                 className="notification-bar__close icon-cross"

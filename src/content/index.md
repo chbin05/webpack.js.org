@@ -2,7 +2,7 @@
 title: webpack
 ---
 
-## Write your code
+## 코드를 작성하세요
 
 <div class="homepage__wrap">
 <div class="homepage__left">
@@ -26,7 +26,7 @@ export default function bar() {
 </div>
 
 
-## Bundle with webpack
+## 웹팩을 통해 묶으세요
 
 <div class="homepage__wrap">
 <div class="homepage__left">
@@ -56,10 +56,9 @@ __page.html__
 </html>
 ```
 
-Then run `webpack` on the command-line to create `bundle.js`.
+`bundle.js`를 생성하기 위해 `webpack`을 커맨드 라인에서 실행하세요.
 </div>
 </div>
 
-## It's that simple
-
-__[Get Started](/guides/getting-started)__ quickly in our __Guides__ section, or dig into the __[Concepts](/concepts)__ section for more high-level information on the core notions behind behind webpack.
+## 간단합니다.
+웹팩을 [빠르게 시작하기](/guides/getting-started)를 위해 __가이드__ 영역을 참조해주세요. 또는 Webpack 내에 핵심 개념에 대한 더 높은 수준의 정보를 보려면 [개념](/concepts) 영역을 참조해주세요.
