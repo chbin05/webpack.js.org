@@ -26,7 +26,7 @@ export default function bar() {
 </div>
 
 
-## 웹팩을 통해 묶으세요
+## 웹팩을 통해 하나의 파일(`bundle.js`)로 묶어주세요.
 
 <div class="homepage__wrap">
 <div class="homepage__left">
@@ -61,4 +61,4 @@ __page.html__
 </div>
 
 ## 간단합니다.
-웹팩을 [빠르게 시작하기](/guides/getting-started)를 위해 __가이드__ 영역을 참조해주세요. 또는 Webpack 내에 핵심 개념에 대한 더 높은 수준의 정보를 보려면 [개념](/concepts) 영역을 참조해주세요.
+웹팩을 [시작하기](/guides/getting-started)를 위해 __가이드__ 영역을 참조해주세요. 또는 Webpack 내에 핵심 개념에 대한 더 높은 수준의 정보를 보려면 [개념](/concepts) 영역을 참조해주세요.

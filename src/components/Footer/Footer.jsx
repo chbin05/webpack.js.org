@@ -11,10 +11,10 @@ export default (props) => {
     <footer className="footer">
       <Container className="footer__inner">
         <section className="footer__left">
-          <Link className="footer__link" to="/guides/getting-started">빠르게 시작하기</Link>
-          <Link className="footer__link" to="/organization">Organization</Link>
-          <Link className="footer__link" to="/support">Support</Link>
-          <Link className="footer__link" to="/comparison">Comparison</Link>
+          <Link className="footer__link" to="/guides/getting-started">시작하기</Link>
+          <Link className="footer__link" to="/organization">조직</Link>
+          <Link className="footer__link" to="/support">지원</Link>
+          <Link className="footer__link" to="/comparison">비교</Link>
         </section>
 
         <section className="footer__middle">
@@ -24,10 +24,10 @@ export default (props) => {
         </section>
 
         <section className="footer__right">
-          <Link className="footer__link" to="/glossary">Glossary</Link>
-          <Link className="footer__link" to="/branding">Branding</Link>
+          <Link className="footer__link" to="/glossary">어휘</Link>
+          <Link className="footer__link" to="/branding">브랜드</Link>
           <Link className="footer__link" to="//gitter.im/webpack/webpack">Gitter</Link>
-          <Link className="footer__link" to="https://github.com/webpack/webpack/releases">Changelog</Link>
+          <Link className="footer__link" to="https://github.com/webpack/webpack/releases">변경 로그</Link>
           <Link className="footer__link footer__license" to="/license">
             <img
               alt="Creative Commons License"

@@ -27,9 +27,9 @@ export default props => {
 
       <div className="splash__section">
         <Container>
-          <h1>Support the Team</h1>
+          <h1>지원 팀</h1>
 
-          <p>Through contributions, donations, and sponsorship, you allow webpack to thrive. Your donations directly support office hours, continued enhancements, and most importantly, great documentation and learning material!</p>
+          <p>당신의 기여, 기부 및 후원을 통해 웹팩이 번창 할 수 있습니다. 당신의 기부금은 근무 시간, 지속적인 개선, 가장 중요한 것은 훌륭한 문서와 학습 자료를 제공하는 것입니다!</p>
 
           <h2>Platinum Sponsors</h2>
           <Support type="sponsors" rank="platinum" />
