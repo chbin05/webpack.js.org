@@ -6,3 +6,6 @@ support-backers.json
 support-sponsors.json
 starter-kits-data.json
 .antwar
+id_rsa
+id_rsa.pub
+.idea
