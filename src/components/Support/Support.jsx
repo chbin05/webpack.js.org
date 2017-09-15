@@ -55,7 +55,7 @@ export default class Support extends React.Component {
             </p>
           ) : (
             <p>
-              The following <b>Backers</b> are individuals who have contributed various amounts of money in order to help support webpack. Every little bit helps, and we appreciate even the smallest contributions.
+              다음 후원자분들은 웹팩 지원을 위해 금액을 기부 한 개인입니다. 어떤 사소한 것이라도 많은 도움이 됩니다. 작은 공헌에도 감사드립니다.
             </p>
           )}
         </div>

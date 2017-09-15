@@ -23,7 +23,7 @@ let Sections = [
       { title: '설정', url: 'configuration' },
       { title: '로더', url: 'loaders' },
       { title: '플러그인', url: 'plugins' },
-      { title: 'Development', url: 'development' }
+      { title: '개발', url: 'development' }
     ]
   },
   {
