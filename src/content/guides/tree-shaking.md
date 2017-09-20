@@ -56,7 +56,7 @@ export function cube(x) {
 ```
 
 <!-- With that in place, let's update our entry script to utilize this one of these new methods and remove `lodash` for simplicity: -->
-여기서, 우리는 새로운 함수 중 하나를 활용하고 더 단순화를 시키기 위해 엔트리 스크립트를 업데이트를 하고 `lodash '를 제거하겠습니다.
+여기서, 우리는 새로운 함수 중 하나를 활용하고 더 단순화를 시키기 위해 엔트리 스크립트를 업데이트하고 `lodash'를 제거하겠습니다.
 
 __src/index.js__
 
@@ -158,4 +158,4 @@ T>`--optimize-minimize` 플래그를 사용하여 `UglifyJsPlugin`을 추가하�
 - Include a minifier that supports dead code removal (e.g. the `UglifyJSPlugin`).
 
 <!-- If you are interested in more ways to optimize your output, please jump to the next guide for details on building for [production](/guides/production). -->
-output을 최적화하는 방법들에 대한 많은 관심이 있으시다면, 다음 가이드인 [production](/guides/production)로 이동해주세요.
+output을 최적화하는 방법들에 대한 많은 관심이 있으시다면, 다음 가이드인 [프로덕션](/guides/production)으로 이동해주세요.
