@@ -124,7 +124,7 @@ __webpack.config.js__
 
 ``` diff
 const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
++ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -154,8 +154,10 @@ T>`--optimize-minimize` 플래그를 사용하여 `UglifyJsPlugin`을 추가하�
 <!-- So, what we've learned is that in order to take advantage of _tree shaking_, you must... -->
 여기서, 우리는 __트리 쉐이킹__을 어떻게 이용하는 지에 대해 배웠습니다. (반드시 이용하세요..)
 
-- Use ES2015 module syntax (i.e. `import` and `export`).
-- Include a minifier that supports dead code removal (e.g. the `UglifyJSPlugin`).
+<!-- - Use ES2015 module syntax (i.e. `import` and `export`). -->
+- ES2015 module 구문을 이용하세요 (i.e. `import` and `export`).
+<!-- - Include a minifier that supports dead code removal (e.g. the `UglifyJSPlugin`). -->
+- dead code를 제거하는 minifier를 적용하세요 (e.g. the `UglifyJSPlugin`).
 
 <!-- If you are interested in more ways to optimize your output, please jump to the next guide for details on building for [production](/guides/production). -->
 output을 최적화하는 방법들에 대한 많은 관심이 있으시다면, 다음 가이드인 [프로덕션](/guides/production)으로 이동해주세요.
