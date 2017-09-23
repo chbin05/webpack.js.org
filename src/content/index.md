@@ -61,4 +61,4 @@ __page.html__
 </div>
 
 ## 간단합니다.
-웹팩을 [시작하기](/guides/getting-started)를 위해 __가이드__ 영역을 참조해주세요. 또는 Webpack 내에 핵심 개념에 대한 더 높은 수준의 정보를 보려면 [개념](/concepts) 영역을 참조해주세요.
+웹팩을 [시작하기](/guides/getting-started)위해 __가이드__ 영역을 참조해주세요. 또는 Webpack 내의 핵심 개념에 대한 더 높은 수준의 정보를 찾고자 한다면 [개념](/concepts) 영역을 참조해주세요.
