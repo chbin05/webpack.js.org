@@ -54,8 +54,7 @@ module.exports = {
 };
 ```
 
-In the example above, we use the `output.filename` and the `output.path` properties to tell webpack the name of our bundle and where we want it to be emitted to.
-
+<!-- In the example above, we use the `output.filename` and the `output.path` properties to tell webpack the name of our bundle and where we want it to be emitted to. -->
 위에 예제에서 사용한 `output.filename`은 번들 이름을, `output.path`는 어느 위치에 번들러를 만들지 말해 주는 부분입니다.
 
 `output` 프로퍼티는 [다양한 구성 방법](/configuration/output) 이 존재하지만, 일반적인 유스 케이스만 이해하고 넘어가도록 하겠습니다.
