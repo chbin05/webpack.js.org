@@ -55,7 +55,7 @@ npm install --global webpack
 ```
 
 <!-- Note that this is __not a recommended practice__. Installing globally locks you down to a specific version of webpack and could fail in projects that use a different version. -->
-W> 이 방법은 __권장되는 방법은 아닙니다.__ 전역으로 설치를 하게 되면 webpack의 특정 버전으로 사용자가 잠기게 되며 다른 버전을 사용하는 프로젝트가 실패하게 될 수도 있습니다.
+W> 이 방법은 __권장하는 방법은 아닙니다.__ 전역으로 설치를 하게 되면 webpack의 특정 버전으로 사용자가 잠기게 되며 다른 버전을 사용하는 프로젝트가 실패하게 될 수도 있습니다.
 
 <!-- ## Bleeding Edge -->
 ## 한 단계 앞선 webpack
