@@ -36,7 +36,7 @@ export default class Sidebar extends Component {
 
           <SidebarItem
             url={ `/${sectionName}` }
-            title="Introduction"
+            title="소개"
             currentPage= { currentPage } />
 
           {
