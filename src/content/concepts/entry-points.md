@@ -53,7 +53,7 @@ const config = {
 ```
 이 오브젝트 구문은 장황해 보이지만, 어플리케이션에서 entry 부분을 확장해서 정의 할 수 있는 방법입니다.
 
-<!--T> **"Scalable webpack configurations"** are ones that can be reused and combined with other partial configurations. This is a popular technique used to separate concerns by environment, build target and runtime. They are then merged using specialized tools like [webpack-merge](https://github.com/survivejs/webpack-merge).-->
+<!--T **"Scalable webpack configurations"** are ones that can be reused and combined with other partial configurations. This is a popular technique used to separate concerns by environment, build target and runtime. They are then merged using specialized tools like [webpack-merge](https://github.com/survivejs/webpack-merge).-->
 T> **webpack 구성을 확장 할 수 있다는 것** 은 재사용 할 수 있고 다른 부분과 결합해서 쓸수 있는데 이는 환경, 빌드 타겟 및 런타임에 대한 관심사를 분리하는 보편적인 기술입니다. [webpack-merge](https://github.com/survivejs/webpack-merge) 같은 툴을 이용해서 병합됩니다.
 
 
@@ -81,7 +81,7 @@ const config = {
 <!-- **Why?** This setup allows you to leverage `CommonsChunkPlugin` and extract any vendor references from your app bundle into your vendor bundle, replacing them with `__webpack_require__()` calls. If there is no vendor code in your application bundle, then you can achieve a common pattern in webpack known as [long-term vendor-caching](/guides/caching). -->
 **왜 이 작업을 하는 것일까요??** 이 작업은 `CommonsChunkPlugin`를 사용해서 app 번들에서 vendor를 참조하고 있는 것들을 vendor 번들로 추출하고, `__webpack_require__()` 호출로 대체합니다. 어플리케이션 번들에 vendor 코드가 없다면, [장시간 vendor 캐싱](/guides/caching) 으로 알려진 webpack의 일반적인 패턴을 달성 할 수 있습니다.
 
-<!-- ?> Consider removing this scenario in favor of the DllPlugin, which provides a better vendor-splitting. -->
+<!-- ? Consider removing this scenario in favor of the DllPlugin, which provides a better vendor-splitting. -->
 ?> 더 나은 vendor-splitting를 제공하는 DllPlugin 플러그인의 잠정을 이용해 이 시나리오를 제거해 보는 것을 고려해 보세요.
 
 ### Multi Page Application
@@ -108,5 +108,5 @@ const config = {
 <!-- - Use `CommonsChunkPlugin` to create bundles of shared application code between each page. Multi-page applications that reuse a lot of code/modules between entry points can greatly benefit from these techniques, as the amount of entry points increase. -->
 - `CommonsChunkPlugin`을 사용해서 각 페이지 간에 어플리케이션 코드를 공유할 수 있는 번들을 만들어 보세요. entry points간에 많은 코드와 모듈을 재 사용할 수 있는 Multi-page applications은 entry points가 증가함에 따라 이러한 테크닉으로부터 큰 장점을 얻을 수 있습니다.
 
-<!-- T> As a rule of thumb: for each HTML document use exactly one entry point. -->
+<!-- T As a rule of thumb: for each HTML document use exactly one entry point. -->
 T> 경험으로 보아, 각각의 HTML 문서에는 정확하게 하나의 entry point를 사용합니다.
