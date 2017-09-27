@@ -116,7 +116,7 @@ another.bundle.js  544 kB       1  [emitted]  [big]  another
 - 유연하지 않기 때문에 코드를 코어 애플리케이션 로직과 동적으로 분리하는 데 사용할 수 없습니다.
 
 <!-- The first of these two points is definitely an issue for our example, as `lodash` is also imported within `./src/index.js` and will thus be duplicated in both bundles. Let's remove this duplication by using the `CommonsChunkPlugin`. -->
-이 두 가지 중 첫 번째는 우리가 진행하고 있는 예제에서 한가지 분명한 이슈를 담고 있습니다. 여기에는 `lodash` 또한 `./src/index.js'에 import 되어있기 때문에 모든 번들 파일 안에 같은 코드가 복사되어 있는 것을 확인할 수 있습니다. 그러면 이제 `CommonsChunkPlugin`를 사용하여 중복된 코드를 제거해봅시다.
+이 두 가지 중 첫 번째는 우리가 진행하고 있는 예제에서 한가지 분명한 이슈를 담고 있습니다. 여기에는 `lodash` 또한 `./src/index.js`에 import 되어있기 때문에 모든 번들 파일 안에 같은 코드가 복사되어 있는 것을 확인할 수 있습니다. 그러면 이제 `CommonsChunkPlugin`를 사용하여 중복된 코드를 제거해봅시다.
 
 <!-- ## Prevent Duplication -->
 ## 중복 방지
