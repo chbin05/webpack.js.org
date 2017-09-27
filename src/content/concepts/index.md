@@ -1,5 +1,5 @@
 ---
-title: Concepts
+title: 컨셉
 sort: 1
 contributors:
   - TheLarkInn
