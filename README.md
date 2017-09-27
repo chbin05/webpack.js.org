@@ -1,6 +1,6 @@
 # webpack-korea.org
 
-## 번역에 기여하기
+## 번역에 기여하는 방법
 1. [webpack-korea](https://github.com/webpack-korea/webpack.js.org) 저장소를 개인 저장소로 `fork`해주세요.
 2. 번역한 파일(`예: webpack.js.org/src/content/folder/.md`)을 개인 브랜치로 작업해주세요.
 3. `npm run start`를 실행하여 Local 환경에서 이상이 없는 지 반드시 확인해주세요.
