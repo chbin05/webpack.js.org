@@ -1,5 +1,5 @@
 ---
-title: 코드 스플리팅(분할)
+title: 코드 스플리팅
 sort: 9
 contributors:
   - pksjce
