@@ -1,5 +1,5 @@
 ---
-title: Concepts
+title: 컨셉
 sort: 1
 contributors:
   - TheLarkInn
@@ -21,7 +21,7 @@ webpack은 어플리케이션의 모든 의존성 그래프를 만드는데 이 
 
 webpack에서 _entry points_ 를 [webpack 구성 오브젝트](/configuration)의 `entry` 프로퍼티를 사용하여 정의하고 있습니다.
 
-간단한 예제는 아래와 같아요:
+간단한 예제는 아래와 같습니다:
 
 **webpack.config.js**
 
