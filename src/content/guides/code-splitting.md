@@ -91,7 +91,7 @@ module.exports = {
 ```
 
 <!-- This will yield the following build result: -->
-진행이 되면, 다음처럼 빌드 결과가 생성됩니다.
+위의 진행하게 되면, 다음처럼 빌드 결과가 생성됩니다.:
 
 ``` bash
 Hash: 309402710a14167f42a8
