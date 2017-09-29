@@ -17,7 +17,7 @@
 1. [Lutece](https://github.com/Lutece)
 2. [mojosoeun](https://github.com/mojosoeun)
 
- ---
+---
 
 # webpack.js.org
 
