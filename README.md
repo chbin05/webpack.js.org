@@ -7,7 +7,6 @@
 3. `npm run start`를 실행하여 Local 환경에서 이상이 없는 지 반드시 확인해주세요. 
 4. 원본 저장소인 [webpack-korea](https://github.com/webpack-korea/webpack.js.org)로 Pull Requset를 보내주세요. 
 5. 제목은 반드시 번역을 진행한 파일 이름을 남겨주세요. `예: feat: add translation for Chapter-Name and messages` 
-6. PR 내에 `Reviewers`와 `Labels(translation)`를 설정해주세요.
 
 ## 번역 전 확인사항 
 1. 먼저 진행되고 있는 문서들을 `Projects/번역 진행 현황`에서 반드시 확인해주세요. 
