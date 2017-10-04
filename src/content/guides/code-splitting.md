@@ -172,7 +172,6 @@ another.bundle.js  537 bytes       1  [emitted]         another
 
 <!-- Here are some other useful plugins and loaders provide by the community for splitting code: -->
 다음은 코드 분할을 위해 커뮤니티에서 제공하는 여러가지 유용한 플러그인과 로더입니다.
-
 <!-- - [`ExtractTextPlugin`](/plugins/extract-text-webpack-plugin): Useful for splitting CSS out from the main application. -->
 - [`ExtractTextPlugin`](/plugins/extract-text-webpack-plugin): 메인 어플리케이션에서 CSS를 분리하는 데 유용합니다.
 <!-- - [`bundle-loader`](/loaders/bundle-loader): Used to split code and lazy load the resulting bundles. -->
@@ -189,8 +188,7 @@ T> [`ComminsChunkPlugin`](/plugins/commons-chunk-plugin)은 [explicit vendor chu
 <!-- Two similar techniques are supported by webpack when it comes to dynamic code splitting. The first and more preferable approach is use to the [`import()` syntax](/api/module-methods#import-) that conforms to the [ECMAScript proposal](https://github.com/tc39/proposal-dynamic-import) for dynamic imports. The legacy, webpack-specific approach is to use [`require.ensure`](/api/module-methods#require-ensure). Let's try using the first of these two approaches... -->
 동적 코드 분할과 관련된 두 가지 유사한 기술이 웹팩에서 지원됩니다. 가장 바람직한 첫 번째 방법은 동적 임포트를 위해 [`import()` syntax](/api/module-methods#import-)를 사용하는 것입니다. [ECMAScript proposal](https://github.com/tc39/proposal-dynamic-import)에서 동적 임포트를 위한 내용을 확인하실 수 있습니다. 레거시한 웹팩의 특별한 접근법은 [`require.ensure`](/api/module-methods#require-ensure)를 사용하는 것입니다. 이 두 가지 방법 중 첫 번째를 사용해 보겠습니다.
 
-<!-- `import()` calls use [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). If you want to support older browsers that lack `Promise` support (e.g. Internet Explorer), you'll need to include a `Promise` polyfill _before_ your primary bundles. -->
-W> `import()` 호출은 [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)를 사용합니다. `Promise` 지원이 부족한 구형 브라우저 (예 : Internet Explorer)를 지원하려면 기본 번들 파일들 보다 먼저 'Promise' 폴리필을 포함시켜야 합니다.
+W> `import()` calls use [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) internally. If you use `import()` with older browsers, remember to shim `Promise` using a polyfill such as [es6-promise](https://github.com/stefanpenner/es6-promise) or [promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
 
 <!-- Before we start, let's remove the extra [`entry`](/concepts/entry-points/) and [`CommonsChunkPlugin`](/plugins/commons-chunk-plugin) from our config as they won't be needed for this next demonstration: -->
 시작하기 전, 다음 번 진행에서 필요하지 필요하지 않은 설정인 [`entry`](/concepts/entry-points/)와 [`CommonsChunkPlugin`](/plugins/commons-chunk-plugin)를 삭제합니다.

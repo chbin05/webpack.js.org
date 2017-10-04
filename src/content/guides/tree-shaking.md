@@ -5,6 +5,8 @@ contributors:
   - simon04
   - zacanger
   - alexjoverm
+  - avant1
+  - MijaelWatts
 related:
   - title: Tree shaking with webpack 2, TypeScript and Babel
     url: https://alexjoverm.github.io/2017/03/06/Tree-shaking-with-Webpack-2-TypeScript-and-Babel/
@@ -159,5 +161,6 @@ T>`--optimize-minimize` 플래그를 사용하여 `UglifyJsPlugin`을 추가하�
 <!-- - Include a minifier that supports dead code removal (e.g. the `UglifyJSPlugin`). -->
 - dead code를 제거하는 minifier를 적용하세요 (e.g. the `UglifyJSPlugin`).
 
-<!-- If you are interested in more ways to optimize your output, please jump to the next guide for details on building for [production](/guides/production). -->
-output을 최적화하는 방법들에 대한 많은 관심이 있으시다면, 다음 가이드인 [프로덕션](/guides/production)으로 이동해주세요.
+You can imagine your application as a tree. The source code and libraries you actually use represent the green, living leaves of the tree. Dead code represents the brown, dead leaves of the tree that are consumed by autumn. In order to get rid of the dead leaves, you have to shake the tree, causing them fall.
+
+If you are interested in more ways to optimize your output, please jump to the next guide for details on building for [production](/guides/production).

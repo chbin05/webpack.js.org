@@ -1,5 +1,5 @@
 ---
-title: 컨셉
+title: 핵심 컨셉
 sort: 1
 contributors:
   - TheLarkInn
