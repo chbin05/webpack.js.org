@@ -7,10 +7,12 @@
 1. 저장소 내려받기
 ```git clone https://github.com/webpack-korea/webpack.js.org.git```
 2. issue 탭에 자신이 번역하고 싶은 문서 등록하기
-- 이미 진행되고 있는 문서가 있는 지 확인해주세요.
 ```예) Concept/Configuration 진행 ```
+
+- 이미 진행되고 있는 문서가 있는 지 확인해주세요.
+
 3. 새로운 브랜치 만들어 작업하기
-4. 번역이 완료되면 Pull Request 날리기
+4. 번역이 완료되면 Pull Request 날리기
 5. webpack-korea.org 에서 반영 확인하기
 (매일 밤 사이트에 반영됩니다.)
 
