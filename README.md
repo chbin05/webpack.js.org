@@ -13,11 +13,13 @@
 
 3. 새로운 브랜치 만들어 작업하기
 4. pull request 날리기
-5. webpack-korea.org 에서 반영 확인하기
+5. http://webpack-korea.org 에서 반영 확인하기
 (매일 밤 사이트에 반영됩니다.)
 
 ## Slack
 - 채널에 참여하고 싶은 분들께서는 issue에 초대 메일을 받을 수 있는 본인 이메일을 작성해주세요
+
+---
 
 # webpack.js.org
 

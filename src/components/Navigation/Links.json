@@ -1,22 +1,22 @@
 [
   {
-    "title": "Documentation",
-    "url": "concepts",
+    "title": "문서",
+    "url": "개념",
     "children": [
-      { "title": "Concepts", "url": "concepts" },
-      { "title": "Configuration", "url": "configuration" },
+      { "title": "개념", "url": "concepts" },
+      { "title": "설정", "url": "configuration" },
       { "title": "API", "url": "api" },
-      { "title": "Guides", "url": "guides" },
-      { "title": "Loaders", "url": "loaders" },
-      { "title": "Plugins", "url": "plugins" }
+      { "title": "가이드", "url": "guides" },
+      { "title": "로더", "url": "loaders" },
+      { "title": "플러그인", "url": "plugins" }
     ]
   },
   {
-    "title": "Contribute",
+    "title": "기여",
     "url": "contribute"
   },
   {
-    "title": "Blog",
+    "title": "블로그",
     "url": "//medium.com/webpack"
   }
 ]
