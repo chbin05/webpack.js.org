@@ -22,7 +22,7 @@ Name                                                     | Description
 [`ContextReplacementPlugin`](/plugins/context-replacement-plugin) | 유추된 `require`의 컨텍스트를 오버라이딩합니다.
 [`DefinePlugin`](/plugins/define-plugin)           | 컴파일이 되는 과정에서 전역 상수가 설정되는 것을 허용합니다.
 [`DllPlugin`](/plugins/dll-plugin)                 | 빌드 시간을 대폭 향상시키기 위해 번들 파일들을 분할합니다.
-[`EnvironmentPlugin`](/plugins/environment-plugin) |  [`DefinePlugin`](./define-plugin) 내에서 `process.env` 만을 설정하는 것에 대한 축약형입니다.
+[`EnvironmentPlugin`](/plugins/environment-plugin) | `process.env`에서 [`DefinePlugin`](./define-plugin)을 사용하는 것에 대한 축약형입니다.
 [`ExtractTextWebpackPlugin`](/plugins/extract-text-webpack-plugin) | 번들 내에 있는 (CSS) 텍스트를 별도의 파일로 추출합니다.
 [`HotModuleReplacementPlugin`](/plugins/hot-module-replacement-plugin) | Hot Module Replacement (HMR)을 사용 가능하도록 설정합니다.
 [`HtmlWebpackPlugin`](/plugins/html-webpack-plugin)          | 번들 파일이 적용된 HTML 파일을 쉽게 생성하도록 설정합니다.
