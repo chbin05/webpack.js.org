@@ -1,9 +1,9 @@
 {
-  "name": "webpack.js.org",
+  "name": "webpack-korea.org",
   "version": "0.1.2",
   "private": true,
   "description": "The main site for all things webpack.",
-  "homepage": "https://github.com/webpack/webpack.js.org",
+  "homepage": "https://webpack-korea.org",
   "author": "Greg Venech",
   "license": "CC BY 4.0",
   "main": "n/a",
@@ -15,18 +15,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/webpack/webpack.js.org.git"
+    "url": "https://github.com/webpack-korea/webpack.js.org.git"
   },
   "bugs": {
-    "url": "https://github.com/webpack/webpack.js.org/issues"
+    "url": "https://github.com/webpack-korea/webpack.js.org/issues"
   },
   "engines": {
     "node": ">=6.9"
   },
   "scripts": {
-    "start": "npm run init:generated && npm run fetch && node ./antwar.bootstrap.js develop",
+    "saveNpm": "npm run fetch was exist in start and build script",
+    "start": "npm run init:generated && node ./antwar.bootstrap.js develop",
     "start-only": "node ./antwar.bootstrap.js develop",
-    "build": "npm run init:generated && npm run fetch && rm -rf build/ && node ./antwar.bootstrap.js build && npm run sitemap && echo webpack-korea.org > build/CNAME",
+    "build": "npm run init:generated && rm -rf build/ && node ./antwar.bootstrap.js build && npm run sitemap && echo webpack-korea.org > build/CNAME",
     "build-test": "npm run build && http-server build/",
     "deploy": "gh-pages -d build",
     "fetch": "sh src/scripts/fetch.sh",
