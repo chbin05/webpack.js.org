@@ -4,7 +4,6 @@ contributors:
   - skipjack
 ---
 
-<!-- Ignore the specified files, i.e. those matching the provided paths or regular expressions, while in [watch mode] -->
 특정한 파일들을 무시합니다. 다시 말해, 제공된 경로 또는 정규 표현식에 일치하는 항목들은 [watch mode](/configuration/watch)일 때 감시 대상에서 제외됩니다.
 
 ``` javascript
