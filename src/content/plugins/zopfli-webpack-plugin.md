@@ -4,7 +4,8 @@ source: https://raw.githubusercontent.com/webpack-contrib/zopfli-webpack-plugin/
 edit: https://github.com/webpack-contrib/zopfli-webpack-plugin/edit/master/README.md
 repo: https://github.com/webpack-contrib/zopfli-webpack-plugin
 ---
-Node-Zopfli plugin for Webpack.
+
+Node-Zopfli 플러그인
 
 ## Install
 
@@ -31,14 +32,13 @@ module.exports = {
 
 ## Arguments
 
-* `asset`: The target asset name. `[file]` is replaced with the original asset. `[path]` is replaced with the path of the original asset and `[query]` with the query. Defaults to `"[path].gz[query]"`.
-* `filename`: A `function(asset)` which receives the asset name (after processing `asset` option) and returns the new asset name. Defaults to `false`.
-* `algorithm`: Can be a `function(buf, callback)` or a string. For a string the algorithm is taken from `zopfli`.
-* `test`: All assets matching this RegExp are processed. Defaults to every asset.
-* `threshold`: Only assets bigger than this size are processed. In bytes. Defaults to `0`.
-* `minRatio`: Only assets that compress better that this ratio are processed. Defaults to `0.8`.
-* `deleteOriginalAssets`: Whether to delete the original assets or not. Defaults to `false`.
-
+* `asset`: 타겟의 에셋 이름입니다. `[file]`은 원본 에셋으로 대체됩니다. `[path]`는 `[query]`와 함께 원본 에셋의 경로로 대체됩니다. 기본 값은 `"[path].gz[query]"`입니다.
+* `filename`: (`asset` 옵션을 처리 한 후) 에셋 이름을 받고 새로운 에셋 이름을 반환하는 `function(asset)`입니다. 기본 값은 `false`입니다.
+* `algorithm`: `function(buf, callback)` 또는 `String`이 됩니다. `String`의 경우 알고리즘은 `zopfli`에서 가져옵니다.
+* `test`: 이 정규식과 일치하는 모든 에셋들을 처리합니다. 기본 값은 모든 에셋들을 대상으로 합니다.
+* `threshold`: 이 크기보다 큰 에셋들만 처리합니다.(바이트 단위). 기본 값은 `0`입니다.
+* `minRatio`: 이 비율보다 압축률이 좋은 에셋들만 처리합니다. 기본 값은 `0.8`입니다.
+* `deleteOriginalAssets`: 원본 에셋들을 지울 것인지 결정합니다. 기본 값은 `false`입니다.
 ## Option Arguments
 
 * verbose: Default: false,
