@@ -107,8 +107,6 @@ function cube(x) {
 
 ## 아웃풋 최소화하기
 
-So we've cued up our "dead code" to be dropped by using the `import` and `export` syntax, but we still need to drop it from the bundle. To do that, we'll add a minifier that supports dead code removal -- the [`UglifyJSPlugin`](/plugins/uglifyjs-webpack-plugin) -- to our configuration...
-
 우리는 `import`와 `export` 사용으로"데드 코드"를 떼어냈습니다. 그러나 여전히 번들 파일에 남은 `dead code`를 제거할 필요가 있습니다. 그래서 우리는 `데드 코드`를 제거하기 위해 [`UglifyJSPlugin`](/plugins/uglifyjs-webpack-plugin) 설정 내에 있는 minifier를 추가 할 것입니다.
 
 
