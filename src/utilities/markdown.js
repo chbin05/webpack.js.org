@@ -32,8 +32,7 @@ module.exports = function() {
     if (/-with-links/.test(lang)) {
       linksEnabled = true;
       lang = lang.replace(/-with-links/, "");
-    }
-
+    } 
     if (/-with-details/.test(lang)) {
       detailsEnabled = true;
       lang = lang.replace(/-with-details/, "");
@@ -146,10 +145,21 @@ function parseContent(data) {
 function parseAnchor(string) {
   var stripped = string.replace(/\[(.+)\]\(.+\)/gi, '$1').replace(/(<([^>]+)>)/ig, '');
   var clean = stripped.replace(/`/g, '');
+  var id = clean.replace(/[^\w]+/g, '-').toLowerCase();
+  if (id === '-') {
+    id = (function(string) {
+      var hash = 0;
+      for (var i = 0; i < string.length; i++) {
+        hash = (hash << 5) - hash + string.charCodeAt(i);
+        hash = hash & hash;
+      }
+      return Math.abs(hash);
+    })(clean);
+  }
 
   return {
     title: clean,
-    id: clean.replace(/[^\w]+/g, '-').toLowerCase()
+    id: id
   };
 }
 
