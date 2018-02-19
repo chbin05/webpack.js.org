@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
     
-      <link href="/05dab88995d75541cc5a.css" rel="stylesheet">
+      <link href="/6bd741bd91ad989292fc.css" rel="stylesheet">
     
 
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
@@ -82,7 +82,6 @@
 </code></pre>
 <p>&#xC704;&#xC758; &apos;&#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC740; harmony export square&apos;&#xC8FC;&#xC11D;&#xC5D0; &#xC8FC;&#xBAA9;&#xD574;&#xC8FC;&#xC138;&#xC694;. &#xCF54;&#xB4DC;&#xB97C; &#xBCF4;&#xBA74;, <code>square</code>&#xAC00; export &#xB418;&#xC5B4;&#xC788;&#xC9C0; &#xC54A;&#xB294; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; &#xC5EC;&#xC804;&#xD788; &#xBC88;&#xB4E4; &#xD30C;&#xC77C;&#xC5D0; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; &#xB2E4;&#xC74C; &#xC139;&#xC158;&#xC5D0;&#xC11C; &#xC774; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <h2 class="header"><a class="anchor" href="#1767959352" id="1767959352"></a><span class="text">&#xC544;&#xC6C3;&#xD48B; &#xCD5C;&#xC18C;&#xD654;&#xD558;&#xAE30;</span><a class="icon-link" href="#1767959352"></a></h2>
-<p>So we&apos;ve cued up our &quot;dead code&quot; to be dropped by using the <code>import</code> and <code>export</code> syntax, but we still need to drop it from the bundle. To do that, we&apos;ll add a minifier that supports dead code removal -- the <a href="/plugins/uglifyjs-webpack-plugin"><code>UglifyJSPlugin</code></a> -- to our configuration...</p>
 <p>&#xC6B0;&#xB9AC;&#xB294; <code>import</code>&#xC640; <code>export</code> &#xC0AC;&#xC6A9;&#xC73C;&#xB85C;&quot;&#xB370;&#xB4DC; &#xCF54;&#xB4DC;&quot;&#xB97C; &#xB5BC;&#xC5B4;&#xB0C8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; &#xC5EC;&#xC804;&#xD788; &#xBC88;&#xB4E4; &#xD30C;&#xC77C;&#xC5D0; &#xB0A8;&#xC740; <code>dead code</code>&#xB97C; &#xC81C;&#xAC70;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; &#xC6B0;&#xB9AC;&#xB294; <code>&#xB370;&#xB4DC; &#xCF54;&#xB4DC;</code>&#xB97C; &#xC81C;&#xAC70;&#xD558;&#xAE30; &#xC704;&#xD574; <a href="/plugins/uglifyjs-webpack-plugin"><code>UglifyJSPlugin</code></a> &#xC124;&#xC815; &#xB0B4;&#xC5D0; &#xC788;&#xB294; minifier&#xB97C; &#xCD94;&#xAC00; &#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <p>&#xBA3C;&#xC800; &#xC124;&#xCE58;&#xB97C; &#xD574;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-bash">npm i --save-dev uglifyjs-webpack-plugin
