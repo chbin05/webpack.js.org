@@ -32,7 +32,8 @@ module.exports = function() {
     if (/-with-links/.test(lang)) {
       linksEnabled = true;
       lang = lang.replace(/-with-links/, "");
-    } 
+    }
+
     if (/-with-details/.test(lang)) {
       detailsEnabled = true;
       lang = lang.replace(/-with-details/, "");
