@@ -6,6 +6,22 @@ contributors:
   - rouzbeh84
 ---
 
+
+<!-- The `EnvironmentPlugin` is shorthand for using the [`DefinePlugin`](/plugins/define-plugin) on [`process.env`](https://nodejs.org/api/process.html#process_process_env) keys. -->
+`EnvironmentPlugin`은 [`process.env`](https://nodejs.org/api/process.html#process_process_env) 에서 [`DefinePlugin`](./define-plugin)을 사용하는 것에 대한 축약형입니다.
+
+## Usage
+
+<!-- The `EnvironmentPlugin` accepts either an array of keys or an object mapping its keys to their default values. -->
+`EnvironmentPlugin`은 키의 배열이나 키를 기본값으로 매핑하는 객체를 받습니다.
+
+```javascript
+new webpack.EnvironmentPlugin(['NODE_ENV', 'DEBUG'])
+```
+
+<!-- This is equivalent to the following `DefinePlugin` application: -->
+이것은 다음과 같이 `DefinePlugin`를 통해 설정한 내용과 같습니다:
+
 The `EnvironmentPlugin` is shorthand for using the [`DefinePlugin`](/plugins/define-plugin) on [`process.env`](https://nodejs.org/api/process.html#process_process_env) keys.
 
 ## Usage
