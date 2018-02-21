@@ -1,5 +1,5 @@
 ---
-title: Guides
+title: 가이드
 sort: 0
 contributors:
   - skipjack
