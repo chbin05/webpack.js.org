@@ -1,13 +1,13 @@
 ---
-title: Dependency Graph
+title: 의존성 그래프
 sort: 9
 contributors:
   - TheLarkInn
 ---
 
-Any time one file depends on another, webpack treats this as a _dependency_. This allows webpack to take non-code assets, such as images or web fonts, and also provide them as _dependencies_ for your application.
+한 파일이 다른 파일에 의존 할 때마다 웹팩은 이것을 _의존성_으로 취급합니다. 이를 통해 웹팩은 이미지 또는 웹 폰트와 같은 코드가 아닌 애셋을 가져올 수 있으며, 또한 그것들을 당신의 어플리케이션을 위해 _의존성들_로 제공 할 수도 있습니다.
 
-When webpack processes your application, it starts from a list of modules defined on the command line or in its config file.
-Starting from these _entry points_, webpack recursively builds a _dependency graph_ that includes every module your application needs, then packages all of those modules into a small number of _bundles_ - often, just one - to be loaded by the browser.
+웹팩이 어플리케이션을 처리 할 때, 명령 줄 또는 구성 파일에 의해 정의된 모듈 목록부터 시작합니다.
+이 _엔트리 포인트_에서 시작하여 웹팩은 응용 프로그램에 필요한 모든 모듈을 포함하는 _의존성 그래프_를 반복적으로 작성한 다음 해당 모듈을 모두 브라우저에서 로드 할 수 있도록 작은 수의 _번들_ (보통은 단 하나만 존재함)로 패키지화합니다
 
-T> Bundling your application is especially powerful for *HTTP/1.1* clients, as it minimizes the number of times your app has to wait while the browser starts a new request. For *HTTP/2*, you can also use Code Splitting and bundling through webpack for the [best optimization](https://medium.com/webpack/webpack-http-2-7083ec3f3ce6#.7y5d3hz59).
+T> 당신의 애플리케이션을 묶는 것은 브라우저가 새로운 요청을 시작하는 동안 앱이 대기해야 하는 횟수를 최소화합니다. *HTTP/1.1* 클라이언트의 경우 애플리케이션을 묶는 것은 특히 강력합니다. *HTTP/2*의 경우 [최상의 최적화](https://medium.com/webpack/webpack-http-2-7083ec3f3ce6#.7y5d3hz59)를 위해 코드 분할 및 웹팩 번들을 사용할 수도 있습니다.
