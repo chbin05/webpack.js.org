@@ -7,9 +7,15 @@
 1. 저장소 내려받기
 ```git clone https://github.com/webpack-korea/webpack.js.org.git```
 2. issue 탭에 자신이 번역하고 싶은 문서 등록하기
-```예) Concept/Configuration 진행 ```
+```예) Concept/Configuration```
+3. 등록한 issue에 라벨 표시하기
+- In Progress: 진행 중
+- Done: 완료
+- Translation: 번역 (번역과 관련된 모든 이슈는 이 라벨을 태깅해주세요.)
+- document: 웹팩 문서에 대한 의견이 있을 경우
+- 이외의 태그도 적당히 섞어주시며 활용해주세요!
 
-- 이미 진행되고 있는 문서가 있는 지 확인해주세요.
+- 꼭! 번역이 이미 진행되고 있는 문서가 있는 지 확인해주세요.
 
 3. 새로운 브랜치 만들어 작업하기
 4. pull request 날리기
