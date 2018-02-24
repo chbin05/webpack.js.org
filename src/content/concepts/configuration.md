@@ -1,12 +1,11 @@
 ---
-title: Configuration
+title: 설정
 sort: 6
 contributors:
 - TheLarkInn
 - simon04
 ---
 
-테스트입니다.
 You may have noticed that few webpack configurations look exactly alike. This is because **webpack's configuration file is a JavaScript file that exports an object.** This object is then processed by webpack based upon its defined properties.
 
 Because it's a standard Node.js CommonJS module, you **can do the following**:
@@ -29,7 +28,7 @@ T> The most important part to take away from this document is that there are man
 
 The following examples below describe how webpack's configuration object can be both expressive and configurable because _it is code_:
 
-## The Simplest Configuration
+## 가장 심플한 웹팩 설정
 
 **webpack.config.js**
 
@@ -45,11 +44,11 @@ module.exports = {
 };
 ```
 
-## Multiple Targets
+## 다수의 타겟
 
 _See_: [Exporting multiple configurations](/configuration/configuration-types/#exporting-multiple-configurations)
 
-## Using other Configuration Languages
+## 다른 언어 설정의 사용법
 
 webpack accepts configuration files written in multiple programming and data languages.
 
