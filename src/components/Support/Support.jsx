@@ -55,6 +55,7 @@ export default class Support extends React.Component {
 
   handleErrorForImg(event) {
     const imgNode = event.target;
+    console.log(imgNode);
     imgNode.src = webpackImgSmall;
   }
 

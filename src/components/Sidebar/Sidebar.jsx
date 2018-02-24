@@ -26,7 +26,7 @@ export default class Sidebar extends Component {
         }}>
 
         <div className="sidebar__inner">
-          <a href="https://github.com/webpack/webpack/releases">
+          <a href="https://github.com/webpack-korea/webpack.js.org">
             <Shield content="npm/v/webpack" label="webpack" />
           </a>
 
