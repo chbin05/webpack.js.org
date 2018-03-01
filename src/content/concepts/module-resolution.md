@@ -15,13 +15,14 @@ import foo from 'path/to/module'
 require('path/to/module')
 ```
 
+
 종속성 모듈은 어플리케이션 코드 또는 타사 라이브러리를 통해 얻을 수 있습니다.
 리졸버(resolver)는 웹팩이 `require`/`import`문을 통해 로드하는 모듈마다 번들 내에 포함되어야 하는 모듈인지 판단할 수 있도록 도와줍니다.
 웹팩은 모듈을 번들하는 동안 파일 경로를 설정하기 위해 [enhanced-resolve](https://github.com/webpack/enhanced-resolve)를 사용합니다.
 
-## Resolving rules in webpack
+## 웹팩의 규칙 분석
 
-`enhanced-resolve`를 사용하면, 웹팩은 세 가지 종류의 파일 경로를 해결할 수 있습니다:
+`enhanced-resolve`를 사용하면, 웹팩은 세 가지 종류의 파일 경로를 분석할 수 있습니다:
 
 ### 절대 경로
 
