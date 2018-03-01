@@ -1,5 +1,5 @@
 ---
-title: Targets
+title: 대상(target)
 sort: 10
 contributors:
   - TheLarkInn
@@ -8,13 +8,13 @@ contributors:
   - srilman
 ---
 
-Because JavaScript can be written for both server and browser, webpack offers multiple deployment _targets_ that you can set in your webpack [configuration](/configuration).
+JavaScript는 서버와 브라우저 모두를 대상으로 코드를 작성할 수 있기 때문에, 웹팩은 당신만의 웹팩 [구성](/configuration)이 설정된 여러 배포 대상을 제공합니다.
 
-W> The webpack `target` property is not to be confused with the `output.libraryTarget` property. For more information see [our guide](/concepts/output) on the `output` property.
+W> 웹팩 `target` 속성은 `output.libraryTarget`속성과 혼동해서는 안됩니다. 더 자세한 정보는 [`output`](/concepts/output)을 참조하십시오.
 
-## Usage
+## 사용법
 
-To set the `target` property, you simply set the target value in your webpack config:
+`target` 속성을 설정하려면, 웹팩 설정에서 target 값을 설정하면 됩니다:
 
 **webpack.config.js**
 
@@ -24,15 +24,15 @@ module.exports = {
 };
 ```
 
-In the example above, using `node` webpack will compile for usage in a Node.js-like environment (uses Node.js `require` to load chunks and not touch any built in modules like `fs` or `path`).
+위의 예제에서, `node`를 사용하면 웹팩은 Node.js와 비슷한 환경에서 사용되기 위해 컴파일합니다. (청크를 로드하고 `fs` 또는 `path`와 같은 내장 모듈을 건드리지 않기 위해 Node.js의 `require`를 사용합니다.)
 
-Each _target_ has a variety of deployment/environment specific additions, support to fit its needs. See what [targets are available](/configuration/target).
+각 _target_에는 필요에 맞는 다양한 배포/환경을 위한 추가 기능이 있습니다. [사용할 수 있는 target](/configuration/target)을 확인하십시오.
 
-?>Further expansion for other popular target values
+?> 인기있는 target 값을 위한 추가 확장
 
-## Multiple Targets
+## 여러 대상(target)
 
-Although webpack does **not** support multiple strings being passed into the `target` property, you can create an isomorphic library by bundling two separate configurations:
+웹팩은 **target** 속성에 전달되는 여러 문자열을 **지원하진 않지만,** 별도의 두 웹팩 설정 값을 번들링하여 같은 모양의 라이브러리를 생성할 수 있습니다.
 
 **webpack.config.js**
 
@@ -59,13 +59,13 @@ var clientConfig = {
 module.exports = [ serverConfig, clientConfig ];
 ```
 
-The example above will create a `lib.js` and `lib.node.js` file in your `dist` folder.
+위 예제는 `dist` 폴더에 `lib.js`와 `lib.node.js` 파일을 생성합니다.
 
-## Resources
+## 자료
 
-As seen from the options above there are multiple different deployment _targets_ that you can choose from. Below is a list of examples, and resources that you can refer to.
+위의 옵션에서 볼 수 있듯이, 선택할 수 있는 여러 배포 _target_이 있습니다. 다음은 참조 할 수 있는 예제 및 리소스 목록입니다.
 
-*  **[compare-webpack-target-bundles](https://github.com/TheLarkInn/compare-webpack-target-bundles)**: A great resource for testing and viewing different webpack _targets_. Also great for bug reporting.
-* **[Boilerplate of Electron-React Application](https://github.com/chentsulin/electron-react-boilerplate)**: A good example of a build process for electron's main process and renderer process.
+* **[compare-webpack-target-bundles](https://github.com/TheLarkInn/compare-webpack-target-bundles)** : 다른 webpack _targets_을 테스트하고 볼 수 있는 훌륭한 리소스입니다. 또한 버그 리포팅에 좋습니다.
+* **[Boilerplate of Electron-React Applicatio](https://github.com/chentsulin/electron-react-boilerplate)** : 일렉트론의 메인 프로세스와 렌더러 프로세스를 위한 빌드 프로세스의 좋은 예시입니다.
 
-?> Need to find up to date examples of these webpack targets being used in live code or boilerplates.
+?> 라이브 코드 나 보일러 플레이트에서 사용되는 웹팩 target의 최신 예제 찾기.
