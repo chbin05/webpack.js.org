@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: 시작하기
 sort: 2
 contributors:
   - bebraw
@@ -14,12 +14,11 @@ contributors:
   - sudarsangp
 ---
 
-As you may already know, webpack is used to compile JavaScript modules. Once [installed](/guides/installation), you can interface with webpack either from its [CLI](/api/cli) or [API](/api/node). If you're still new to webpack, please read through the [core concepts](/concepts) and [this comparison](/comparison) to learn why you might use it over the other tools that are out in the community.
+여러분도 알겠지만, webpack은 JavaScript 모듈을 컴파일하는데 사용됩니다. 일단 [설치](/guides/installation)하면, [CLI](/api/cli)나 [API](/api/node)를 통해 webpack을 인터페이스 할 수 있습니다. 여전히 webpack을 처음 접한다면, [핵심 개념](/concepts)과 [비교](/comparison)를 읽고 왜 커뮤니티에 없는 다른 도구들을 사용하는지 알아 보시기 바랍니다.
 
+## 기본 설정
 
-## Basic Setup
-
-First let's create a directory, initialize npm, and [install webpack locally](/guides/installation#local-installation):
+우선 디렉토리를 만든 후, npm을 초기화하고, [local에 webpack을 설치](/guides/installation#local-installation)해 봅시다.
 
 ``` bash
 mkdir webpack-demo && cd webpack-demo
@@ -27,7 +26,7 @@ npm init -y
 npm install --save-dev webpack
 ```
 
-Now we'll create the following directory structure and contents:
+다음과 같은 디렉토리 구조와 컨텐츠들이 만들어져 있을 것입니다.
 
 __project__
 
@@ -68,20 +67,20 @@ __index.html__
 </html>
 ```
 
-In this example, there are implicit dependencies between the `<script>` tags. Our `index.js` file depends on `lodash` being included in the page before it runs. This is because `index.js` never declared a need for `lodash`; it just assumes that the global variable `_` exists.
+이 예제에서, `<script>` 태그 간 암묵적인 의존성이 존재합니다. `index.js` 파일이 실행되기 전 페이지에 포함된 `lodash`에 의존하고 있습니다. `lodash`가 필요하다는 것을 `index.js`에 선언하지 않았기 때문에, 글로벌 변수 `_`가 존재한다고 가정하고 있습니다.
 
-There are problems with managing JavaScript projects this way:
+자바스크립트 프로젝트를 이런식으로 관리하는 것은 다음과 같은 문제가 있습니다.
 
-- It is not immediately apparent that the script depends on an external library.
-- If a dependency is missing, or included in the wrong order, the application will not function properly.
-- If a dependency is included but not used, the browser will be forced to download unnecessary code.
+- 스크립트가 외부라이브러리에 의존하는 것이 명확하지 않습니다.
+- 의존성이 누락되었거나, 잘못된 순서로 포함될 경우, 어플리케이션이 적절하게 동작하지 않을 것입니다.
+- 의존성이 포함되었으나 사용하지 않을 경우, 브라우저는 불필요한 코드를 강제로 다운로드 받아야 합니다.
 
-Let's use webpack to manage these scripts instead.
+대신 webpack을 이용해 이 스크립트들을 관리해 봅시다.
 
 
-## Creating a Bundle
+## 번들 생성
 
-First we'll tweak our directory structure slightly, separating the "source" code (`/src`) from our "distribution" code (`/dist`). The  "source" code is the code that we'll write and edit. The "distribution" code is the minimized and optimized `output` of our build process that will eventually be loaded in the browser:
+우선, 디렉터리 구조를 약간 변경할 건데, "원본" 코드 (`/src`)와 "배포용" 코드 (`/dist`)로 분리하였습니다. "원본" 코드는 코드를 작성하고 수정 할 수 있는 코드를 말하며, "배포용" 코드는 "원본" 코드를 최소화하고 최적화한 `결과물`을 의미하고 결국 브라우저에서 로드되는 코드입니다.
 
 __project__
 
@@ -95,13 +94,13 @@ __project__
     |- index.js
 ```
 
-To bundle the `lodash` dependency with `index.js`, we'll need to install the library locally...
+`lodash` 의존성을 `index.js`와 번들링 하기 위해, 로컬에 라이브러리를 설치해야 합니다.
 
 ``` bash
 npm install --save lodash
 ```
 
-and then import it in our script...
+그리고 스크립트에 주입합니다.
 
 __src/index.js__
 
@@ -121,7 +120,7 @@ __src/index.js__
   document.body.appendChild(component());
 ```
 
-Now, since we'll be bundling our scripts, we have to update our `index.html` file. Let's remove the lodash `<script>`, as we now `import` it, and modify the other `<script>` tag to load the bundle, instead of the raw `/src` file:
+스크립트를 번들링 할 것이기 때문에, `index.html` 파일을 업데이트 해야합니다. `import`를 사용했기때문에, lodash `<script>`를 제거하고, `/src` 파일 대신에 번들이 로드되는 `<script>` 태그로 수정합니다.
 
 __dist/index.html__
 
@@ -138,9 +137,9 @@ __dist/index.html__
   </html>
 ```
 
-In this setup, `index.js` explicitly requires `lodash` to be present, and binds it as `_` (no global scope pollution). By stating what dependencies a module needs, webpack can use this information to build a dependency graph. It then uses the graph to generate an optimized bundle where scripts will be executed in the correct order.
+이 설정해서, `index.js`는 명시적으로 `lodash`를 필요로 하고 있고, `_`로 바인딩합니다(글로벌 스코프에 오염이 되지 않음). 모듈이 필요로 하는 의존성을 기술 함으로써 이 정보를 사용하여 webpack은 의존성 그래프를 만들고 이것을 이용해 스크립트가 올바른 순서대로 실행 될 수 있는 최적화된 번들을 생성합니다.
 
-With that said, let's run `webpack` with our script as the [entry point](/concepts/entry-points) and `bundle.js` as the [output](/concepts/output):
+[시작 포인트](/concepts/entry-points)로써 스크립트와 [결과물](/concepts/output)로의 `bundle.js`를 가지고 `webpack`을 실행해 봅시다.
 
 ``` bash
 ./node_modules/.bin/webpack src/index.js dist/bundle.js
@@ -156,23 +155,21 @@ bundle.js  544 kB       0  [emitted]  [big]  main
    [3] ./src/index.js 278 bytes {0} [built]
 ```
 
-T> Your output may vary a bit, but if the build is successful then you are good to go.
+T> 결과물이 약간 상이 할 수 있지만, 빌드가 성공한다면 잘 진행됩니다.
 
-Open `index.html` in your browser and, if everything went right, you should see the following text: 'Hello webpack'.
+브라우저에서 `index.html`을 열고, 잘 동작한다면 'Hello webpack'이라는 텍스트를 볼 수 있습니다.
 
+## 모듈
 
-## Modules
+es2015에서 [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)와 [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) 문은 표준화 되었습니다. 대부분의 브라우저에서 지원하는 것은 아니지만 webpack은 지원하고 있습니다.
 
-The [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) statements have been standardized in [ES2015](https://babeljs.io/learn-es2015/). Although they are not supported in most browsers yet, webpack does support them out of the box.
+webpack은 사실 구형 브라우저에서 실행 될 수 있도록 코드를 "트랜스파일"합니다. `dist/bundle.js` 확인해 보면, webpack이 이 부분을 어떻게 하는지 볼 수 있는데 매우 독창적입니다! `import` 와 `export` 외에도 다양한 모듈 구문을 지원합니다. 좀더 자세한 내용은 [모듈 API](/api/module-methods)에서 확인해 보시기 바랍니다.
 
-Behind the scenes, webpack actually "transpiles" the code so that older browsers can also run it. If you inspect `dist/bundle.js`, you might be able to see how webpack does this, it's quite ingenious! Besides `import` and `export`, webpack supports various other module syntaxes as well, see [Module API](/api/module-methods) for more information.
+webpack은 `import`와 `export` 구문 외에 어떠한 코드도 변경하지 않는것에 주의하시기 바랍니다. 다른 [ES2015 피쳐들](http://es6-features.org/)을 사용하고 싶다면, webpack의 [로더 시스템](/concepts/loaders/)을 통해 [Babel](https://babeljs.io/) 또는 [Bublé](https://buble.surge.sh/guide/) 같은 [트랜스파일러를 사용](/loaders/#transpiling)하시기 바랍니다.
 
-Note that webpack will not alter any code other than `import` and `export` statements. If you are using other [ES2015 features](http://es6-features.org/), make sure to [use a transpiler](/loaders/#transpiling) such as [Babel](https://babeljs.io/) or [Bublé](https://buble.surge.sh/guide/) via webpack's [loader system](/concepts/loaders/).
+## 설정 이용
 
-
-## Using a Configuration
-
-Most projects will need a more complex setup, which is why webpack supports a [configuration file](/concepts/configuration). This is much more efficient than having to type in a lot of commands in the terminal, so let's create one to replace the CLI options used above:
+대부분의 프로젝트들은 복잡한 설정이 필요합니다. 그래서 webpack은 [설정하기 위한 파일](/concepts/configuration)을 제공합니다. 터미널에 많은 커맨드를 타이핑하는 것보다 좀 더 효율적이니 위에 CLI 옵션 대신 파일을 하나 생성해 보도록 합시다.
 
 __project__
 
@@ -200,7 +197,7 @@ module.exports = {
 };
 ```
 
-Now, let's run the build again but instead using our new configuration:
+새로운 설정파일을 이용해 다시 빌드해 봅시다.
 
 ``` bash
 ./node_modules/.bin/webpack --config webpack.config.js
@@ -216,14 +213,13 @@ bundle.js  544 kB       0  [emitted]  [big]  main
    [3] ./src/index.js 278 bytes {0} [built]
 ```
 
-T> If a `webpack.config.js` is present, the `webpack` command picks it up by default. We use the `--config` option here only to show that you can pass a config of any name. This will be useful for more complex configurations that need to be split into multiple files.
+T> `webpack.config.js`가 있다면, `webpack` 은 기본적으로 그 파일을 선택합니다. `--config` 옵션을 사용하면 다름 파일명을 가진 설정 파일을 실행 할 수 있습니다. 이 방법은 여러개의 파일로 분리해야하는 복잡한 설정에 유용합니다.
 
-A configuration file allows far more flexibility than simple CLI usage. We can specify loader rules, plugins, resolve options and many other enhancements this way. See the [configuration documentation](/configuration) to learn more.
+설정 파일은 단순히 CLI를 사용하는 것보다 좀 더 유연함을 제공해 줍니다. loader rules, plugins, resolve options 및 기타 개선사항들을 이 방법을 이용해 구성할 수 있습니다. 좀 더 자세한 내용은 [설정 문서](/configuration)를 참조하시기 바랍니다.
 
+## NPM 스크립트
 
-## NPM Scripts
-
-Given it's not particularly fun to run a local copy of webpack from the CLI, we can set up a little shortcut. Let's adjust our _package.json_ by adding an [npm script](https://docs.npmjs.com/misc/scripts):
+CLI에서 매번 webpack의 로컬 복사본을 실행하는 것은 그리 재밌는 일이 아니므로, 단축 명령어로 설정 할 수 있습니다. [npm 스크립트](https://docs.npmjs.com/misc/scripts)를 추가하여  _package.json_ 파일을 수정해 봅시다.
 
 __package.json__
 
@@ -237,9 +233,9 @@ __package.json__
 }
 ```
 
-Now the `npm run build` command can be used in place of the longer commands we used earlier. Note that within `scripts` we can reference locally installed npm packages by name instead of writing out the entire path. This convention is the standard in most npm-based projects and allows us to directly call `webpack`, instead of `./node_modules/.bin/webpack`
+이제 `npm run build` 명령어를 이전에 사용했던 긴 명령어 대신 사용할 수 있습니다. `scripts`에서 전체 경로를 작성하지 않고 로컬에 설치된 npm 패키지의 이름을 참조 할 수 있는데 이 컨벤션은 npm 기반 프로젝트의 표준이며, `./node_modules/.bin/webpack`을 사용하는 대신 `webpack`을 사용하여 직접 호출 할 수 있습니다.
 
-Now run the following command and see if your script alias works:
+다음 명령어를 실행해 스크립트가 잘 돌아가는지 확인 할 수 있습니다.
 
 ``` bash
 npm run build
@@ -255,12 +251,11 @@ bundle.js  544 kB       0  [emitted]  [big]  main
    [3] ./src/index.js 278 bytes {0} [built]
 ```
 
-T> Custom parameters can be passed to webpack by adding two dashes between the `npm run build` command and your parameters, e.g. `npm run build -- --colors`.
+T> 커스텀한 파라미터들은 `npm run build` 명령어와 파라미터 사이에 두개의 대시(`--`)를 이용하여 전달 할 수 있습니다.  e.g. `npm run build -- --colors`.
 
+## 결론
 
-## Conclusion
-
-Now that you have a basic build together you should move on to the next guide [`Asset Management`](/guides/asset-management) to learn how to manage assets like images and fonts with webpack. At this point, your project should look like this:
+이제 기본 빌드를 구성해 보았으니, 다음 [`Asset 관리`](/guides/asset-management) 가이드로 넘어가 webpack으로 이미지와 폰트를 어떻게 구성하는지 알아보도록 합니다. 이 부분에서 프로젝트는 다음과 같이 보여야 합니다.
 
 __project__
 
@@ -276,6 +271,6 @@ webpack-demo
 |- /node_modules
 ```
 
-T> If you're using npm 5, you'll probably also see a `package-lock.json` file in your directory.
+T> 만약 npm 5를 사용한다면, 디렉터리에서 `package-lock.json`을 볼 수 있을 것입니다.
 
-If you want to learn more about webpack's design, you can check out the [basic concepts](/concepts) and [configuration](/configuration) pages. Furthermore, the [API](/api) section digs into the various interfaces webpack offers.
+webpack을 디자인하는 것에 대해 좀 더 알아보고 싶다면, [기본 개념](/concepts)과 [구성](/configuration) 페이지에서 확인해 볼 수 있습니다. 또한 [API](/api)섹션에서 webpack에서 제공해주는 다양한 인터페이스를 파볼수 있습니다.
