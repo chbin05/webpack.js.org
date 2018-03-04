@@ -512,7 +512,7 @@ T> 이것은 [d3](https://github.com/d3)같은 도구를 이용하여 데이터 
 
 ## 마무리
 
-다음 가이드에서는 이번 장에서 사용한 모든 에셋들을 사용하지 않을 것이므로, 정리하고 [결과물 관리](https://webpack.js.org/guides/output-management/)가이드를 준비해 보도록합시다.
+다음 가이드에서는 이번 장에서 사용한 에셋들을 모두 사용하지 않을 것이므로, 정리하고 [결과물 관리](https://webpack.js.org/guides/output-management/)가이드를 준비해 보도록합시다.
 
 __project__
 
