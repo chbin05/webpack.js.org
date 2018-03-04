@@ -1,5 +1,5 @@
 ---
-title: Asset Management
+title: 에셋 관리
 sort: 3
 contributors:
   - skipjack
@@ -8,15 +8,13 @@ contributors:
   - sudarsangp
 ---
 
-If you've been following the guides from the start, you will now have a small project that shows "Hello webpack". Now let's try to incorporate some other assets, like images, to see how they can be handled.
+처음부터 가이드를 따라 왔다면, "Hello webpack" 이라 보이는 작은 프로젝트를 진행 했을 것입니다. 이제 이미지 같은 에셋들을 통합하고 처리하는 방법에 대해 알아보도록 하겠습니다.
+webpack 이전에, 프론트엔드 개발자들은 grunt나 gulp같은 도구를 이용하여 이러한 에셋들을 처리하고 `/src` 폴더에서 `/dist` 나 `/build` 디렉토리로 이동하도록 하였습니다. 이 같은 생각은 자바스크립트 모듈에 사용되었는데 webpack과 같은 도구는 [종속성 그래프](/concepts/dependency-graph)로 알려진 모든 종속성들을 __동적으로 번들링__ 합니다.
+webpack의 기능 중 가장 멋진 것은 로더가 있다면 자바스크립트 외에 _다른 유형의 파일도 포함_ 할 수 있다는 것입니다. 이는 웹 사이트나 웹 앱을 구축할 때 사용되는 모든 것을 위에 나열된 자바스크립트에 대한 동일한 이익(예:명시적 의존성)을 적용할 수 있다는 것을 의미합니다. 먼저, 설정 하기에 친숙한 CSS로 시작해 봅시다.
 
-Prior to webpack, front-end developers would use tools like grunt and gulp to process these assets and move them from their `/src` folder into their `/dist` or `/build` directory. The same idea was used for JavaScript modules, but tools like webpack will __dynamically bundle__ all dependencies (creating what's known as a [dependency graph](/concepts/dependency-graph)). This is great because every module now _explicitly states its dependencies_ and we'll avoid bundling modules that aren't in use.
+## 설정
 
-One of the coolest webpack features is that you can also _include any other type of file_, besides JavaScript, for which there is a loader. This means that the same benefits listed above for JavaScript (e.g. explicit dependencies) can be applied to everything used in building a website or web app. Let's start with CSS, as you may already be familiar with that setup.
-
-## Setup
-
-Let's make a minor change to our project before we get started:
+시작하기 전에 프로젝트를 조금 바꿔봅시다.
 
 __dist/index.html__
 
@@ -33,9 +31,9 @@ __dist/index.html__
 ```
 
 
-## Loading CSS
+## CSS 로딩
 
-In order to `import` a CSS file from within a JavaScript module, you need to install and add the [style-loader](/loaders/style-loader) and [css-loader](/loaders/css-loader) to your [`module` configuration](/configuration/module):
+자바스크립트 모듈에 CSS를 `import` 하기 위해, 여러분의 [`모듈` 설정](/configuration/module)에 [style-loader](/loaders/style-loader)와 [css-loader](/loaders/css-loader)를 설치하고 추가해 봅시다.
 
 ``` bash
 npm install --save-dev style-loader css-loader
@@ -66,11 +64,10 @@ __webpack.config.js__
   };
 ```
 
-T> webpack uses a regular expression to determine which files it should look for and serve to a specific loader. In this case any file that ends with `.css` will be served to the `style-loader` and the `css-loader`.
+T> webpack은 정규식을 사용하여 특정 파일을 찾아 특정 로더에 제공해야 하는지 결정합니다. 위의 예제에 경우에는 `.css` 로 끝나는 파일을 `style-loader`와 `css-loader`에 제공하고,
+이렇게 하면 해당 스타일을 의존하는 파일에 `import './style.css'` 가 가능합니다. 이제 모듈을 실행할때, 문자화가 된 css가 있는 `<style>` 태그는 html 파일의 `<head>`에 삽입됩니다.
 
-This enables you to `import './style.css'` into the file that depends on that styling. Now, when that module is run, a `<style>` tag with the stringified css will be inserted into the `<head>` of your html file.
-
-Let's try it out by adding a new `style.css` file to our project and import it in our `index.js`:
+프로젝트에 새 `style.css` 파일을 추가하고, `index.js`에 삽입해 봅시다.
 
 __project__
 
@@ -114,7 +111,7 @@ __src/index.js__
   document.body.appendChild(component());
 ```
 
-Now run your build command:
+빌드 명렬어를 실행해 봅시다.
 
 ``` bash
 npm run build
@@ -135,14 +132,13 @@ bundle.js  560 kB       0  [emitted]  [big]  main
    [8] ./src/index.js 351 bytes {0} [built]
 ```
 
-Open up `index.html` in your browser again and you should see that `Hello webpack` is now styled in red. To see what webpack did, inspect the page (don't view the page source, as it won't show you the result) and look at the page's head tags. It should contain our style block that we imported in `index.js`.
+브라우저에서 `index.html`을 열고, 빨간색으로 스타일이 적용된 `Hello webpack` 을 볼수 있습니다. webpack이 한 일을 보기위해, 페이지를 검사하여(원본 소스 페이지에는 결과가 나오지 않으니 보지 마세요) head 태그를 보시기 바랍니다. `index.js`에 포함된 스타일 블럭이 포함되어있을 것입니다.
 
-T> Note that you can also [split your CSS](/plugins/extract-text-webpack-plugin) for better load times in production. On top of that, loaders exist for pretty much any flavor of CSS you can think of -- [postcss](/loaders/postcss-loader), [sass](/loaders/sass-loader), and [less](/loaders/less-loader) to name a few.
+T> 또한 프로덕션 모드에서 로링 시간을 단축하기 위해 [CSS 분할](/plugins/extract-text-webpack-plugin)을 할 수 있습니다. 또 여러분이 선호하는 CSS [postcss](/loaders/postcss-loader), [sass](/loaders/sass-loader), [less](/loaders/less-loader)를 위한 로더도 존재합니다
 
+## 이미지 로딩
 
-## Loading Images
-
-So now we're pulling in our CSS, but what about our images like backgrounds and icons? Using the [file-loader](/loaders/file-loader) we can easily incorporate those in our system as well:
+CSS를 가져오도록 수행하였지만, 배경이나 아이콘 같은 이미지는 어떻게 처리할 수 있을까요? [file-loader](/loaders/file-loader)를 이용해 쉽게 통합할 수 있습니다.
 
 ``` bash
 npm install --save-dev file-loader
@@ -179,9 +175,9 @@ __webpack.config.js__
   };
 ```
 
-Now, when you `import MyImage from './my-image.png'`, that image will be processed and added to your `output` directory _and_ the `MyImage` variable will contain the final url of that image after processing. When using the [css-loader](/loaders/css-loader), as shown above, a similar process will occur for `url('./my-image.png')` within your CSS. The loader will recognize this is a local file, and replace the `'./my-image.png'` path with the final path to the image in your `output` directory. The [html-loader](/loaders/html-loader) handles `<img src="./my-image.png" />` in the same manner.
+이제 `import MyImage from './my-image.png'`를 작성하면, 이미지가 처리되어 `output` 디렉토리에 추가되며, `MyImage` 변수는 처리 후 이미지의 최종 URL을 포함하고 있을 것입니다. 위에 보이는 것처럼 [css-loader](/loaders/css-loader)를 사용할때 CSS와 함께 `url('./my-image.png')`를 위한 유사한 처리과정이 일어날 것입니다. 로더는 로컬 파일이 있다는 것을 인지하고, `./my-image.png` 경로를 `output`디렉토리에 있는 이미지의 최종경로로 대체합니다. [html-loader](/loaders/html-loader)도 이같은 방식으로 `<img src="./my-image.png" />`를 처리합니다.
 
-Let's add an image to our project and see how this works, you can use any image you like:
+프로젝트에 이미지를 추가하고, 여러분이 좋아하는 이미지를 사용하여 어떻게 동작하는지 살펴 보도록 합시다.
 
 __project__
 
@@ -234,7 +230,7 @@ __src/style.css__
   }
 ```
 
-Let's create a new build and open up the index.html file again:
+새로 빌드를 하고, index.html 파일을 다시 열어봅시다.
 
 ``` bash
 npm run build
@@ -257,14 +253,13 @@ Time: 895ms
    [9] ./src/index.js 503 bytes {0} [built]
 ```
 
-If all went well, you should now see your icon as a repeating background, as well as an `img` element beside our `Hello webpack` text. If you inspect this element, you'll see that the actual filename has changed to something like `5c999da72346a995e7e2718865d019c8.png`. This means webpack found our file in the `src` folder and processed it!
+잘 동작하였다면, `Hello webpack`텍스트 외에 `img`요소 뿐만이 아니라 배경이 반복되는 아이콘을 볼 수 있습니다. 이 요소를 검사하면, 실제 파일명이 `5c999da72346a995e7e2718865d019c8.png` 와 같이 변경된 것을 확인 할 수 있고, 이것은 webpack이 `src`폴더를 탐색하여 처리한다는 것을 알 수 있습니다.
 
-T> A logical next step from here is minifying and optimizing your images. Check out the [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) and [url-loader](/loaders/url-loader) for more on how you can enhance your image loading process.
+T> 논리적으로 여기서 다음 스텝은 이미지를 최소화 하고 최적화 하는 과정입니다. 이미지 로딩 프로세스를 향상시키기 위해 [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) 와 [url-loader](/loaders/url-loader) 를 확인해 보시기 바랍니다.
 
+## 폰트 로딩
 
-## Loading Fonts
-
-So what about other assets like fonts? The file and url loaders will take any file you load through them and output it to your build directory. This means we can use them for any kind of file, including fonts. Let's update our `webpack.config.js` to handle font files:
+그럼 폰트와 같은 다른 에셋들은 어떻게 할끼요? 파일과 url 로더는 로드 한 모든 파일을 가져와 빌드 디렉토리로 출력합니다. 폰트처럼 모든 종류의 파일을 사용 할 수 있다는 것인데 폰트 파일을 처리 하기 위해 `webpack.config.js` 파일을 업데이트 해 봅시다.
 
 __webpack.config.js__
 
@@ -303,7 +298,7 @@ __webpack.config.js__
   };
 ```
 
-Add some font files to your project:
+프로젝트에 폰트 파일을 추가해 봅시다.
 
 __project__
 
@@ -324,7 +319,7 @@ __project__
   |- /node_modules
 ```
 
-With the loader configured and fonts in place, you can use incorporate them via an `@font-face` declaration. The local `url(...)` directive will be picked up by webpack just as it was with the image:
+로더가 설정되고, 폰트가 잘 위치하면, `@font-face` 선언을 통해 통합 할 수 있습니다. 로컬 `url (...)`문은 이미지처럼 webpack에 의해 선택 될 것입니다.
 
 __src/style.css__
 
@@ -344,7 +339,7 @@ __src/style.css__
   }
 ```
 
-Now run a new build and let's see if webpack handled our fonts:
+새로 빌드를 실행하고, webpack 폰트를 처리했는지 살펴봅시다.
 
 ``` bash
 npm run build
@@ -369,12 +364,11 @@ Time: 775ms
   [10] ./src/index.js 503 bytes {0} [built]
 ```
 
-Open up `index.html` again and see if our `Hello webpack` text has changed to the new font. If all is well, you should see the changes.
+`index.html`을 다시 열고 `Hello webpack` 텍스트가 새로운 폰트로 잘 적용되었는지 확인해 봅시다. 잘 되었다면, 변경 된 것을 볼 수 있습니다.
 
+## 데이타 로딩
 
-## Loading Data
-
-Another useful asset that can be loaded is data, like JSON files, CSVs, TSVs, and XML. Support for JSON is actually built-in, similar to NodeJS, meaning `import Data from './data.json'` will work by default. To import CSVs, TSVs, and XML you could use the [csv-loader](https://github.com/theplatapi/csv-loader) and [xml-loader](https://github.com/gisikw/xml-loader). Let's handle loading all three:
+JSON 파일, CSVs, TSVs, XML 또한 로드 될 수 있는 유용한 에셋들입니다. JSON 지원은 사실 내장되어 있는데, NodeJS 처럼 `import Data from './data.json'`가 기본적으로 동작합니다. CSVs, TSVs, and XML를 삽입하기 위해서 [csv-loader](https://github.com/theplatapi/csv-loader)와 [xml-loader](https://github.com/gisikw/xml-loader)를 사용 해야 합니다. 이 세개를 다 처리해 봅시다.
 
 ``` bash
 npm install --save-dev csv-loader xml-loader
@@ -429,7 +423,7 @@ __webpack.config.js__
   };
 ```
 
-Add some data files to your project:
+프로젝트에 데이터 파일들을 추가합니다.
 
 __project__
 
@@ -462,7 +456,7 @@ __src/data.xml__
 </note>
 ```
 
-Now you can `import` any one of those four types of data (JSON, CSV, TSV, XML) and the `Data` variable you import it to will contain parsed JSON for easy consumption:
+이제 이 4가지의 종류 데이터(JSON, CSV, TSV, XML)를 모두 `import` 할 수 있으며, 삽입한 `Data` 변수는 사용하기 쉽도록 파싱된 JSON을 포함하고 있습니다.
 
 __src/index.js__
 
@@ -493,14 +487,13 @@ __src/index.js__
   document.body.appendChild(component());
 ```
 
-When you open `index.html` and look at your console in your developer tools, you should be able to see your imported data being logged to the console!
+`index.html`을 열어 개발자 도구에서 콘솔을 보면, 삽입된 데이터의 콘솔 로그가 찍힌 것을 확인 할 수 있습니다!
 
-T> This can be especially helpful when implementing some sort of data visualization using a tool like [d3](https://github.com/d3). Instead of making an ajax request and parsing the data at runtime you can load it into your module during the build process so that the parsed data is ready to go as soon as the module hits the browser.
+T> 이것은 [d3](https://github.com/d3)같은 도구를 이용하여 데이터 시각화를 구현하는데 특히 유용합니다. ajax 요청을 만들고 런타임시 데이터를 파싱하는것 대신에 빌드 처리 동안 모듈에 데이터를 로드하여 모듈이 브라우저에 도달하자 마자 파싱 된 데이터를 즉시 처리 할 수 있습니다.
 
+## 전역 에셋
 
-## Global Assets
-
-The coolest part of everything mentioned above, is that loading assets this way allows you to group modules and assets together in a more intuitive way. Instead of relying on a global `/assets` directory that contains everything, you can group assets with the code that uses them. For example, a structure like this can be very useful:
+위에 언급한 모든 것 중 가장 멋진 부분은 이러한 방법으로 에셋을 로딩하는 것은 모듈과 에셋들을 직관적인 방법으로 그룹화 할 수 있다는 점입니다. 모든 것이 담겨있는 전역 `/assets` 디렉토리에 의존하는 것 대신, 에셋을 사용하는 코드를 가지고 그룹화를 할 수 있습니다. 예를 들면 아래와 같은 구조처럼 매우 유용합니다,
 
 ``` diff
 - |- /assets
@@ -512,14 +505,12 @@ The coolest part of everything mentioned above, is that loading assets this way 
 + |  |  |– img.png
 ```
 
-This setup makes your code a lot more portable as everything that is closely coupled now lives together. Let's say you want to use `/my-component` in another project, simply copy or move it into the `/components` directory over there. As long as you've installed any _external dependencies_ and your _configuration has the same loaders_ defined, you should be good to go.
+이러한 설정은 밀접하게 관련있는 것들이 함께 존재하기 때문에 이식성을 높게 만 들 수 있는데 다른 프로젝트에 `/my-component`를 사용하고 싶다면 `/components`디렉토리에 있는 것들을 복사하고 옮길 수 있습니다. _외부 종속_이 되는 것들을 설치하고 _같은 로더로 설정_하도록 정의된다면, 잘 동작해야 합니다.
+그러나, 오래된 방식으로 되어있거나, 다양한 컴포넌트들(views, templates, modules, etc.)간에 공유되고 있는 에셋들이 존재하는 경우를 생각해 봅시다. 이 같은 경우는 에셋들을 기본 디렉토리에 저장하고 [aliasing](/configuration/resolve#resolve-alias)을 이용해 쉽게 `import` 할 수 있습니다.
 
-However, let's say you're locked into your old ways or you have some assets that are shared between multiple components (views, templates, modules, etc.). It's still possible to store these assets in a base directory and even use [aliasing](/configuration/resolve#resolve-alias) to make them easier to `import`.
+## 마무리
 
-
-## Wrapping up
-
-For the next guides we won't be using all the different assets we've used in this guide, so let's do some cleanup so we're prepared for the next piece of the guides [Output Management](https://webpack.js.org/guides/output-management/):
+다음 가이드에서는 이번 장에서 사용한 모든 에셋들을 사용하지 않을 것이므로, 정리하고 [결과물 관리](https://webpack.js.org/guides/output-management/)가이드를 준비해 보도록합시다.
 
 __project__
 
@@ -619,11 +610,11 @@ __src/index.js__
 ```
 
 
-## Next guide
+## 다음 가이드
 
-Let's move on to [Output Management](https://webpack.js.org/guides/output-management/)
+[결과물 관리](https://webpack.js.org/guides/output-management/)로 넘어가 봅시다.
 
 
-## Further Reading
+## 좀 더 읽을 거리들
 
-- [Loading Fonts](https://survivejs.com/webpack/loading/fonts/) on SurviveJS
+- SurviceJS에 [폰트 로딩](https://survivejs.com/webpack/loading/fonts/)하기
