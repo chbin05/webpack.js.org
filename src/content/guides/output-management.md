@@ -1,5 +1,5 @@
 ---
-title: Output Management
+title: 결과물 관리
 sort: 4
 contributors:
   - skipjack
@@ -7,13 +7,13 @@ contributors:
   - sudarsangp
 ---
 
-T> This guide extends on code examples found in the [`Asset Management`](/guides/asset-management) guide.
+T> 이 가이드는 [`에셋 관리`](/guides/asset-management) 가이드의 코드 예제를 확장하였습니다.
 
-So far we've manually included all our assets in our `index.html` file, but as your application grows and once you start [using hashes in filenames](/guides/caching) and outputting [multiple bundles](/guides/code-splitting), it will be difficult to keep managing your `index.html` file manually. However, a few plugins exist that will make this process much easier to manage.
+지금까지 `index.html` 파일에 모든 에셋들을 하나하나 추가하였는데, 어플리케이션이 커지고  [파일명으로 해시를 사용](/guides/caching)하며 [여러개의 번들](/guides/code-splitting)을 만들어 내면 `index.html`을 일일이 관리하기 힘들어집니다. 하지만, 이 프로세스를 좀 더 쉽게 관리할 수 있도록 도와주는 플러그인이 존재합니다.
 
-## Preparation
+## 준비
 
-First, let's adjust our project a little bit:
+일단, 프로젝트를 약간 조정해 봅시다.
 
 __project__
 
@@ -28,7 +28,7 @@ __project__
   |- /node_modules
 ```
 
-Let's add some logic to our `src/print.js` file:
+`src/print.js`파일에 로직을 추가해 봅시다.
 
 __src/print.js__
 
@@ -38,7 +38,7 @@ export default function printMe() {
 }
 ```
 
-And use that function in our `src/index.js` file:
+`src/index.js`파일에 함수를 사용합니다.
 
 __src/index.js__
 
@@ -63,7 +63,7 @@ __src/index.js__
   document.body.appendChild(component());
 ```
 
-Let's also update our `dist/index.html` file, in preparation for webpack to split out entries:
+webpack에서 엔트리를 분할할 준비를 하기 위해 `dist/index.html` 파일을 업데이트 해 봅시다.
 
 __dist/index.html__
 
@@ -81,7 +81,7 @@ __dist/index.html__
   </html>
 ```
 
-Now adjust the config. We'll be adding our `src/print.js` as a new entry point (`print`) and we'll change the output as well, so that it will dynamically generate bundle names, based on the entry point names:
+설정을 수정해 봅시다. 새로운 엔트리 포인트(`print`)로 `src/print.js`를 추가하고, 결과물 또한 변경하면, 엔트리 포인트 명에 기반한 번들명을 동적으로 만들어냅니다.
 
 __webpack.config.js__
 
@@ -102,7 +102,7 @@ __webpack.config.js__
   };
 ```
 
-Let's run `npm run build` and see what this generates:
+`npm run build`를 실행 한 후, 생성한 것을 보도록 합시다.
 
 ``` bash
 Hash: aa305b0f3373c63c9051
@@ -118,14 +118,13 @@ print.bundle.js  2.74 kB       1  [emitted]         print
     + 1 hidden module
 ```
 
-We can see that webpack generates our `print.bundle.js` and `app.bundle.js` files, which we also specified in our `index.html` file. if you open `index.html` in your browser, you can see what happens when you click the button.
+webpack이 `print.bundle.js`과 `app.bundle.js`파일을 생성하였고, `index.html`파일에 명시되어 있습니다. 브라우저에서 `index.html`을 열면, 버튼을 클릭했을 때 무슨 일이 발생하는지 확인 할 수 있습니다.
 
-But what would happen if we changed the name of one of our entry points, or even added a new one? The generated bundles would be renamed on a build, but our `index.html` file would still reference the old names. Let's fix that with the [`HtmlWebpackPlugin`](/plugins/html-webpack-plugin).
+엔트리 포인트 중 이름 하나를 변경하거나 추가하면 어떤 일이 일어날까요? 빌드하면서 번들명은 바뀌겠지만, `index.html`파일은 예전 이름을 참조하고 있습니다. [`HtmlWebpackPlugin`](/plugins/html-webpack-plugin)을 가지고 수정해 봅시다.
 
+## HtmlWebpackPlugin 설정하기
 
-## Setting up HtmlWebpackPlugin
-
-First install the plugin and adjust the `webpack.config.js` file:
+플러그인을 설치하고, `webpack.config.js`파일을 수정해 봅시다.
 
 ``` bash
 npm install --save-dev html-webpack-plugin
@@ -154,7 +153,7 @@ __webpack.config.js__
   };
 ```
 
-Before we do a build, you should know that the `HtmlWebpackPlugin` by default will generate its own `index.html` file, even though we already have one in the `dist/` folder. This means that it will replace our `index.html` file with a newly generated one. Let's see what happens when we do an `npm run build`:
+빌드 하기 전에, `HtmlWebpackPlugin`은 기본적으로 `dist/`폴더에 `index.html`파일이 존재하더라도 해당 파일을 생성한다는 점을 알아야 합니다. 이것은 기존의 `index.html`이 새로 생성된 것으로 대체된다는 것을 의미하기도 합니다. `npm run build`를 했을 때 무슨 일이 일어나는이 확인해 보도록 합시다.
 
 ``` bash
 Hash: 81f82697c19b5f49aebd
@@ -176,20 +175,19 @@ Child html-webpack-plugin for "index.html":
        [3] (webpack)/buildin/module.js 517 bytes {0} [built]
 ```
 
-If you open `index.html` in your code editor, you'll see that the `HtmlWebpackPlugin` has created an entirely new file for you and that all the bundles are automatically added.
+코드 에디터에서 `index.html`를 열면, `HtmlWebpackPlugin`이 완전시 새로운 파일을 만들어 낸 것을 확인 할 수 있고, 모든 번들들이 자동으로 추가된 것 을 확인 할 수 있습니다.
 
-If you want to learn more about all the features and options that the `HtmlWebpackPlugin` provides, then you should read up on it on the [`HtmlWebpackPlugin`](https://github.com/jantimon/html-webpack-plugin) repo.
+`HtmlWebpackPlugin`에서 제공하는 기능과 옵션에 대해 좀 더 알고 싶다면, [`HtmlWebpackPlugin`](https://github.com/jantimon/html-webpack-plugin)레파지토리를 읽어보시기 바랍니다.
 
-You can also take a look at [`html-webpack-template`](https://github.com/jaketrent/html-webpack-template) which provides a couple of extra features in addition to the default template.
+기본 템플릿 외에도 몇 가지의 추가 기능을 제공하는 [`html-webpack-template`](https://github.com/jaketrent/html-webpack-template) 또한 살펴 보실 수 있습니다.
 
+## `/dist`폴더 정리하기
 
-## Cleaning up the `/dist` folder
+이전 가이드와 코드 예제를 보아서 알겠지만, `/dist` 폴더는 꽤 지저분해 졌습니다. webpack이 `/dist`폴더에 새로운 파일을 생성해 놓지만, 어떤 파일이 사실상 프로젝트에서 사용하고 있는지 파악하지 못하고 있습니다.
 
-As you might have noticed over the past guides and code example, our `/dist` folder has become quite cluttered. Webpack will generate the files and put them in the `/dist` folder for you, but it doesn't keep track of which files are actually in use by your project.
+일반적으로 빌드 전에 `/dist` 폴더를 정리하면, 사용된 파일만 생성이 됩니다. 한번 다뤄보도록 합시다.
 
-In general it's good practice to clean the `/dist` folder before each build, so that only used files will be generated. Let's take care of that.
-
-A popular plugin to manage this is the [`clean-webpack-plugin`](https://www.npmjs.com/package/clean-webpack-plugin) so let's install and configure it.
+이 부분을 관리하기에 좋은 플러그인은 [`clean-webpack-plugin`](https://www.npmjs.com/package/clean-webpack-plugin)입니다. 설치하고 설정해 봅시다.
 
 ``` bash
 npm install clean-webpack-plugin --save-dev
@@ -220,18 +218,16 @@ __webpack.config.js__
   };
 ```
 
-Now run an `npm run build` and inspect the `/dist` folder. If everything went well you should now only see the files generated from the build and no more old files!
+`npm run build`를 실행하고 `/dist` 폴더를 확인해 봅시다. 잘 동작했다면 빌드를 통해 생성된 파일을 확인 할 수 있고, 오래된 파일은 존재하지 않을 것입니다!
 
+## 매니페스트
 
-## The Manifest
+webpack과 플러그인들이 어떻게 어떤 파일이 생성되었는지 "알 수 있는지" 궁금 할지도 모릅니다. 답은 매니페스트에 있고 webpack은 모든 모듈이 결과 번들에 매핑되는 방식을 파악할 수 있습니다. webpack의 [`결과물`](/configuration/output)을 다른 방법으로 관리하는 것에 관심이 있다면, 매니페스트가 시작하기에 좋습니다.
 
-You might be wondering how webpack and its plugins seem to "know" what files are being generated. The answer is in the manifest that webpack keeps to track how all the modules map to the output bundles. If you're interested in managing webpack's [`output`](/configuration/output) in other ways, the manifest would be a good place to start.
+매니페스트 데이터는 [`WebpackManifestPlugin`](https://github.com/danethurber/webpack-manifest-plugin)을 사용하여 쉽게 사용 할 수 있도록 json 파일로 추출 할 수 있습니다.
 
-The manifest data can be extracted into a json file for easy consumption using the [`WebpackManifestPlugin`](https://github.com/danethurber/webpack-manifest-plugin).
+이번 프로젝트에서 이 플러그인을 다루는 방법에 대해 전체 예제를 살펴 보지 않을 것이지만, [개념 페이지](/concepts/manifest)와 [캐싱 가이드](/guides/caching)를 읽고 어떻게 이 부분이 장기 캐싱과 관련이 있는지 알아 볼 수 있습니다.
 
-We won't go through a full example of how to use this plugin within your projects, but you can read up on [the concept page](/concepts/manifest) and the [caching guide](/guides/caching) to find out how this ties into long term caching.
+## 결론
 
-
-## Conclusion
-
-Now that you've learned about dynamically adding bundles to your HTML, let's dive into the [development guide](/guides/development). Or, if you want to dig into more advanced topics, we would recommend heading over to the [code splitting guide](/guides/code-splitting).
+이제 HTML에 번들을 동적으로 추가하는 방법에 대해 알아보았습니다. [개발 가이드](/guides/development)로 넘어가 보도록 합시다. 좀 더 심화된 토픽을 파보고 싶다면, [코드 분할 가이드](/guides/code-splitting)를 읽어볼 것을 추천합니다.
