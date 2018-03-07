@@ -7,6 +7,7 @@ contributors:
   - sudarsangp
 ---
 
+
 T> 이 가이드는 [`에셋 관리`](/guides/asset-management) 가이드의 코드 예제를 확장하였습니다.
 
 지금까지 `index.html` 파일에 모든 에셋들을 하나하나 추가하였는데, 어플리케이션이 커지고  [파일명으로 해시를 사용](/guides/caching)하며 [여러개의 번들](/guides/code-splitting)을 만들어 내면 `index.html`을 일일이 관리하기 힘들어집니다. 하지만, 이 프로세스를 좀 더 쉽게 관리할 수 있도록 도와주는 플러그인이 존재합니다.
