@@ -1,5 +1,5 @@
 ---
-title: TypeScript
+title: 타입스크립트
 sort: 14
 contributors:
   - morsdyce
@@ -7,20 +7,20 @@ contributors:
   - mtrivera
 ---
 
-T> This guide stems from the [*Getting Started*](/guides/getting-started/) guide.
+T> 이 가이드는 [*시작하기*](/guides/getting-started/)에서 비롯됩니다.
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. In this guide we will learn how to integrate TypeScript with webpack.
+[타입스크립트](https://www.typescriptlang.org)는 일반 자바스크립트로 컴파일 하는 자바스크립트의 상위 집합입니다. 이 가이드에서는 webpack으로 타입스크립트를 통합하는 방법에 대해 알아보겠습니다.
 
 
-## Basic Setup
+## 기본 설정
 
-First install the TypeScript compiler and loader by running:
+먼저 다음 명령어를 실행하여 타입스크립트 컴파일러와 로더를 설치합니다:
 
 ``` bash
 npm install --save-dev typescript ts-loader
 ```
 
-Now we'll modify the directory structure & the configuration files:
+이제 디렉토리 구조와 설정 파일들을 수정합니다:
 
 __project__
 
@@ -40,7 +40,7 @@ __project__
 
 __tsconfig.json__
 
-Let's set up a simple configuration to support JSX and compile TypeScript down to ES5...
+JSX를 지원하고 타입스크립트를 ES5로 컴파일하기 위한 간단한 설정을 해보겠습니다.
 
 ``` json
 {
@@ -55,11 +55,11 @@ Let's set up a simple configuration to support JSX and compile TypeScript down t
 }
 ```
 
-See [TypeScript's documentation](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to learn more about `tsconfig.json` configuration options.
+`tsconfig.json` 구성 옵션에 대한 자세한 내용은 [타입스크립트 설명서](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)를 참조하십시오.
 
-To learn more about webpack configuration, see the [configuration concepts](/concepts/configuration/).
+webpack 구성에 대한 자세한 내용은 [설정](/concepts/configuration/)을 참조하십시오.
 
-Now let's configure webpack to handle TypeScript:
+이제 타입스크립트를 처리하도록 webpack을 구성 해 보겠습니다:
 
 __webpack.config.js__
 
